@@ -11,7 +11,7 @@ class OutputHandler:
         "add",
         "del",
         "find",
-        "all",
+        "read",
         "edit",
         "help"
     ]
@@ -51,7 +51,7 @@ class OutputHandler:
                 UserInterface.wrong_id_input()
             self.current_action = None
 
-        elif self.current_action == "all":
+        elif self.current_action == "read":
             data: list[list[str]] = file_manager.read_all()
             data.insert(0, ["ID", "Название", "Автор", "Год издания", "Статус"])
             widths: list[int] = [max(len(str(row[i])) for row in data) for i in range(len(data[0]))]
